@@ -1,0 +1,96 @@
+ <div class="container-fluid ">
+  <div class="row no-gutter ">
+
+    <div class="col-md-4  d-md-flex bg-image margin ">
+      <div class="logo"></div>
+       <!-- sidebar div -->
+      <div class="content d-flex flex-column justify-content-center align-items-center  ">
+        <h1 class="sidebarheading">One Of Us?</h1>
+        <p>If you already have an account, just sign in. We've missed you!</p>
+        <button class="btn1" (click)="goToLogIn()">Sign In</button>
+      </div>
+    </div>
+
+    <div class="col-md-8  bg-light line-height">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-7 col-xl-6 mx-auto">
+              <h1 id="formheading">Login Into YourAccount</h1>
+              <br />
+              <!-- main form starts here -->
+              <form [formGroup]="signUp" >
+                <div class="form-row">
+                <div class="form-group mb-3 col-md-6">
+                  <input type="text" class="form-control" placeholder="First Name" formControlName="fname"  class="form-control rounded-pill border-0 shadow-sm px-4"/> 
+                  <span class ="text-danger m-l-5" *ngIf=" signUp.get('fname').touched && signUp.get('fname').hasError('required') ">   Required* </span>
+                </div>
+                
+                <div class="form-group mb-3 col-md-6">
+                  <input type="text" class="form-control" placeholder="Last Name" formControlName="lname" class="form-control rounded-pill border-0 shadow-sm px-4"/>
+                    <span class ="text-danger m-l-5" *ngIf=" signUp.get('lname').touched && signUp.get('lname').hasError('required') "> required*  </span>
+                </div>
+              </div>
+
+                <div class="form-group mb-3">
+                  <input type="number" class="form-control rounded-pill border-0 shadow-sm px-4"  placeholder="Contact Number" formControlName="mobileNo" />
+                  <span class ="text-danger m-l-5" *ngIf=" signUp.get('mobileNo').touched && signUp.get('mobileNo').hasError('required') "> required*</span>
+                </div>
+        
+                <div class="form-group mb-3">
+                  <input formControlName='emailAddress' type="email" class="form-control" id="email1"
+                  aria-describedby="email"  class="form-control rounded-pill border-0 shadow-sm px-4" placeholder="EmailAddress*" ngModel email>
+                  <div class='text-danger' *ngIf="signUp.get('emailAddress').hasError('required') && 
+                  signUp.get('emailAddress').touched ">Email required</div>
+                  <div *ngIf="f.emailAddress.touched && f.emailAddress.invalid" class="text-danger">
+                    <div *ngIf="f.emailAddress.errors.required">Please enter Unique Address</div>
+                    <div *ngIf="f.emailAddress.errors.confirmedValidator">Email Address is not Unique</div>
+                </div>
+                </div>
+
+                <div class="form-group mb-3">
+                  <input formControlName='userId' type="text" class="form-control" id="user1"
+                  aria-describedby="user" placeholder="UserID"  class="form-control rounded-pill border-0 shadow-sm px-4">
+                </div>
+
+                
+                <div class="form-group mb-3">
+                  <input  [type]="show ? 'text' : 'password'" formControlName='password' type="password" class="form-control" id="password1"
+                  aria-describedby="password" placeholder="Password"   class="form-control rounded-pill border-0 shadow-sm px-4">
+                 <span><button class ="btn btn-primary"(click)="password()">{{show ? 'Show' : 'Hide'}}</button></span> 
+                  <div class='text-danger' *ngIf="signUp.get('password').hasError('required') &&   signUp.get('password').touched "></div>
+                  <div class='text-danger' *ngIf="signUp.get('password').hasError('minlength')&&  signUp.get('password').touched ">Min-length 5 req</div>
+                  <div *ngIf="f.password.touched && f.password.invalid" class="text-danger">
+                  <div *ngIf="f.password.errors.required">Password is required.</div>
+                </div>
+                </div>
+
+                    
+                <div class="form-group mb-3">
+                  <input formControlName='confirmPassword' type="password"  class="form-control rounded-pill border-0 shadow-sm px-4" id="password1"
+                  placeholder="Confirmpassword" appToggle>
+                
+                  <div class='text-danger' *ngIf="signUp.get('confirmPassword').hasError('required') && 
+                  signUp.get('confirmPassword').touched "></div>
+                  <div class='text-danger' *ngIf="signUp.get('confirmPassword').hasError('minlength')&& 
+                  signUp.get('confirmPassword').touched ">Min-length 5 req</div>
+                  <div *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid" class="text-danger">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm password required.</div>
+                    <div *ngIf="f.confirmPassword.errors.confirmedValidator"> Confirm 
+                      Password not match.</div>
+                </div>
+                </div>
+               
+                <button type="submit"(click)="registerForm(signUp.value)" [disabled] = "!this.signUp.valid"
+                  class="btn btn-danger btn-block text-uppercase mb-2 rounded-pill shadow-sm"> Sign in</button>
+                <div class="text-center d-flex justify-content-between mt-4"> 
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

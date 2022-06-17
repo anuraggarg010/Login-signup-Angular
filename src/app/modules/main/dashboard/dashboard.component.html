@@ -1,0 +1,55 @@
+<div class="container-fluid ">
+  <div class="row no-gutter ">
+    <div class="col-md-4  d-md-flex bg-image margin login">
+      <div class="content d-flex flex-column justify-content-center align-items-center  ">
+          <img src= {{imageUrl}} class="img-radius " alt="Upload Photo"/>
+          
+        <h1 ngDefaultControl matInput [(ngModel)]="dashboardUserObj.fname" >{{dashboardUserObj.fname}} {{dashboardUserObj.lname}} </h1>
+        <p ngDefaultControl matInput [(ngModel)]="dashboardUserObj.mobileNo">{{dashboardUserObj.mobileNo}}</p>
+        <button class = "btn" (click) ="logOut()">Log Out</button>
+      </div>
+     
+    </div>
+    <div class="col-md-8  bg-light line-height">
+      <div class="card-block">
+      <h6 class="m-b-50 p-b-5 b-b-default f-w-600" >Information</h6>
+      
+      <div class="row m-b-50">
+        <div class="col-sm-6">
+          <p class=" f-w-600">Email Adress</p>
+          <h6 class="text-muted f-w-400" ngDefaultControl matInput [(ngModel)]="dashboardUserObj.emailAddress">{{dashboardUserObj.emailAddress}}</h6>
+        </div>
+        <div class="col-sm-6">
+          <p class="f-w-600">Age</p>
+          <h6 class="text-muted f-w-400" ngDefaultControl matInput [(ngModel)]="dashboardUserObj.age">{{dashboardUserObj.age}}</h6>
+        </div>
+      </div>
+      <div class="row m-b-10">
+        <div class="col-sm-6">
+          <p class=" f-w-600">Gender</p>
+          <h6 class="text-muted f-w-400">{{dashboardUserObj.gender}}</h6>
+        </div>
+        <div class="col-sm-6">
+          <p class="f-w-600">Address</p>
+          <h6 class="text-muted f-w-400"ngDefaultControl matInput [(ngModel)]="dashboardUserObj.address">{{dashboardUserObj.address}}</h6>
+        </div>
+        </div>
+        <div class="row m-b-10">
+          <div class="col-sm-6">
+            <p class=" f-w-600">Postal Code</p>
+            <h6 class="text-muted f-w-400">{{dashboardUserObj.postalCode}}</h6>
+          </div>
+          <div class="col-sm-6">
+            <p class="f-w-600">Martial Status</p>
+            <h6 class="text-muted f-w-400"ngDefaultControl matInput [(ngModel)]="dashboardUserObj.postalCode">{{dashboardUserObj.status}}</h6>
+          </div>
+        
+        <button class ="btn btn-primary" (click) ="openDialog()"> Edit</button>  
+        <button class = "btn btn-primary"(click)
+                     ="passwordDialog()">Pas Change</button> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

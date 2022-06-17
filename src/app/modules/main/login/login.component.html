@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <!-- sidebar div -->
+    <div class="col-md-4 d-md-flex bg-image margin">
+      <div class="content d-flex flex-column justify-content-center align-items-center">
+        <h1 class="sidebarheading">New Here?</h1>
+        <p>Sign up and discover a great amount of new opportunities!</p>
+        <button class="btn1 button" (click)="goToSignUp()">Sign up</button>
+      </div>
+    </div>
+
+    <div class="col-md-8 bg-light line-height">
+      <div class="login d-flex align-items-center py-5">
+        <!-- main form div -->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 col-xl-6 mx-auto">
+              <h1 id="formheading">Login Into YourAccount</h1>
+              <br />
+              <form [formGroup]="login">
+                <div class="form-group mb-3">
+                  <input type="email" class="form-control" placeholder="Email Address*" formControlName="email" class="form-control rounded-pill border-0 shadow-sm px-4"/>
+                  <span class ="text-danger m-l-5"  *ngIf=" login.get('email').touched && login.get('email').hasError('required') "> Email Id is required</span>
+                </div>
+
+                <div class="form-group mb-3">
+                  <input [type]="show ? 'text' : 'password'" id="inputPassword" type="password" placeholder="Password*" required="" formControlName="password" class="form-control rounded-pill border-0 shadow-sm px-4  text-danger"/>
+                  <span><button class ="btn btn-primary"(click)="password()">{{show ? 'Show' : 'Hide'}}</button></span> 
+                  <span class ="text-danger m-l-5" *ngIf="login.get('password').touched && login.get('password').hasError('required') "> Password is required </span>
+                  <br />
+                </div>
+
+                <button type="submit"(click)="loginSubmit(login.value)" [disabled]="login.invalid" class="btn btn-danger btn-block text-uppercase mb-2  rounded-pill shadow-sm" > Sign in </button>
+                <div class="text-center d-flex justify-content-between mt-4"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

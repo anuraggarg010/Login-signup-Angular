@@ -1,0 +1,94 @@
+    <div>
+      <form >
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label >First Name</label>
+            <input type="email"  class="form-control"  placeholder="First Name"
+             ngDefaultControl mat-button matInput [(ngModel)]="data.fname"  
+             name = "fname"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label >Last Name</label>
+            <input type="text" class="form-control" placeholder="LastName"  
+              ngDefaultControl mat-button  matInput [(ngModel)]="data.lname"
+              name = "lname"/>
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label >Contact No.</label>
+          <input type="number" class="form-control"  placeholder="Contact Number"
+            ngDefaultControl mat-button matInput [(ngModel)]="data.mobileNo"
+            name = "mobileNo"/>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label >Email Address</label>
+          <input type="email" class="form-control"  placeholder="Email Address"
+            ngDefaultControl mat-button  matInput [(ngModel)]="data.emailAddress"
+            name = "emailAddress"/>
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+          <label >Age</label>
+          <input type="number" class="form-control" placeholder="Age"
+            ngDefaultControl mat-button matInput [(ngModel)]="data.age"
+            name = "age" />
+        </div>
+        <div class="form-group col-md-6">
+          <label >Gender</label>
+          <div class="form-row ml-10">
+            <input type="text" class="form-control" placeholder="Gender"
+            ngDefaultControl mat-button matInput [(ngModel)]="data.gender"
+            name = "gender" />
+        </div>
+        </div>
+        </div>
+    
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Address</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1"  
+          ngDefaultControl mat-button  matInput [(ngModel)]="data.address"
+          name = "address" rows="1"></textarea>
+        </div>
+ 
+        <div class="form-row">
+          <div class="form-group col-md-6">
+          <label >Postal Code</label>
+          <input type="text" class="form-control" placeholder="postal Code"
+            ngDefaultControl mat-button  matInput [(ngModel)]="data.postalCode"
+            name = "postalCode"/>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label >Martial Status</label>
+          <select class="form-control"  ngDefaultControl mat-button
+           matInput [(ngModel)]="data.status" name = "status">
+            <option>Single</option>
+            <option>Married</option>
+            <option>Divorced</option>
+          </select>
+        </div>
+        </div>
+        <div class="custom-file m-b-25">
+          <input type="file" (change)="changeImage($event)" accept="image/png, image/jpeg, image/jpg"/>
+         
+        </div>
+
+        <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()">No Thanks</button>
+         
+          <button class="btn btn-primary" mat-button  
+      [mat-dialog-close]="{fname:data.fname, 
+        lname:data.lname, mobileNo:data.mobileNo,
+        emailAddress:data.emailAddress, gender:data.gender, age:data.age, 
+        address:data.address, postalCode:data.postalCode,
+         status:data.status,image : data.image}"
+          cdkFocusInitial >Edit</button> 
+        </div>
+        
+      </form>
+
+
+     
